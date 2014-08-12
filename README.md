@@ -10,6 +10,7 @@
 ```php
 $password = "abz";
 
+//kakuna instance
 $encrypter = Ilpaijin\Encrypter\EncrypterFactory::make('kakuna');
 
 $encryptedPassword = $encrypter->encrypt( $password );
@@ -20,6 +21,7 @@ $decryptedPassword = $encrypter->decrypt( $encryptedPassword );
 
 var_dump($decryptedPassword);
 
+//numeric instance
 $encrypter = Ilpaijin\Encrypter\EncrypterFactory::make('numeric');
 
 $encryptedPassword = $encrypter->encrypt( $password );

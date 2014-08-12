@@ -7,7 +7,7 @@
 
 ### Usage
 
-```
+```php
 $password = "abz";
 
 $encrypter = Ilpaijin\Encrypter\EncrypterFactory::make('kakuna');

@@ -23,9 +23,9 @@ class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
         {
             $ordValue = ord($value);
 
-            if($ordValue >= ((97 + $this->alphaLength) - 5))
+            if($ordValue >= ((97 + ($l = count($this->alpha))) - 5))
             {
-                $ordValue -= $this->alphaLength; 
+                $ordValue -= $l; 
             }
 
             $ordValue += 5;
@@ -48,9 +48,9 @@ class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
         {
             $ordValue = ord($value);
 
-            if($ordValue <= ((122 - $this->alphaLength) + 5))
+            if($ordValue <= ((122 - ($l = count($this->alpha))) + 5))
             {
-                $ordValue += $this->alphaLength; 
+                $ordValue += $l; 
             }
 
             $ordValue -= 5;

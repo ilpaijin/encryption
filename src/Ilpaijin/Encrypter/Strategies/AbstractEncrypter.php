@@ -10,12 +10,6 @@ namespace Ilpaijin\Encrypter\Strategies;
 abstract class AbstractEncrypter 
 {
     /**
-     * [$alphaLength description]
-     * @var [type]
-     */
-    protected $alphaLength;
-
-    /**
      * [$alpha description]
      * @var [type]
      */
@@ -27,6 +21,5 @@ abstract class AbstractEncrypter
     public function __construct()
     {
         $this->alpha = range('a','z');
-        $this->alphaLength = count($this->alpha);
     }
 }

@@ -2,9 +2,6 @@
 
 require_once "vendor/autoload.php";
 
-$encrypter = 
-
-
 // $user = $this->getPostParam( 'user' );
 // $password = $this->getPostParam( 'password' );
 
@@ -29,11 +26,3 @@ var_dump($encryptedPassword);
 $decryptedPassword = $encrypter->decrypt( $encryptedPassword );
 
 var_dump($decryptedPassword);
-
-// $found = $this->findUserInDB( $user, $encryptedPassword );
-
-// if ($found) 
-// {
-//     echo “Success!”;
-// }
-    

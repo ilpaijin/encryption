@@ -6,7 +6,7 @@ $password = "abz";
 
 try 
 {
-    $encrypter = Ilpaijin\Encrypter\EncrypterFactory::make('kakuna:5');
+    $encrypter = Ilpaijin\Encrypter\EncrypterFactory::make('kakuna');
     
     $encryptedPassword = $encrypter->encrypt( $password );
     var_dump($encryptedPassword);

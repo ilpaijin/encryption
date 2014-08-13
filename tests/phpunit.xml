@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpunit 
-    bootstrap="vendor/autoload.php" 
+    bootstrap="bootstrap.php" 
     colors="true"
 >
     <testsuites>
         <testsuite name="Encrypter Test Suite">
-            <directory>test/Encrypter/*Test.php</directory>
+            <directory>./Encrypter</directory>
         </testsuite>
     </testsuites>
 

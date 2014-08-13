@@ -33,3 +33,17 @@ $decryptedPassword = $encrypter->decrypt( $encryptedPassword );
 var_dump($decryptedPassword);
 ```
 
+### Tests
+
+
+```
+# /
+phpunit -c ./tests/phpunit.xml tests
+```
+
+or 
+
+```
+# /tests
+phpunit
+```

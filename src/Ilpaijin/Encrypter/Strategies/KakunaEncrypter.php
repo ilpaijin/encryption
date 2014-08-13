@@ -22,7 +22,7 @@ class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
      * @param [type] $strategy [description]
      * @param [type] $factor   [description]
      */
-    public function __construct($factor)
+    public function __construct($factor = null)
     {
         $this->factor = is_null($factor) ? 3 : $factor;
 

@@ -20,7 +20,8 @@ class KakunaEncrypterTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->enc = new KakunaEncrypter;
+        $this->enc5 = new KakunaEncrypter(5);
+        $this->enc = new KakunaEncrypter();
     }
 
     /**
@@ -32,17 +33,31 @@ class KakunaEncrypterTest extends PHPUnit_Framework_TestCase
         $this->enc = null;
     }
 
-    public function testEncryption()
+    public function testEncryption5()
     {
         $expected = "fge";
+
+        $this->assertEquals($expected, $this->enc5->encrypt("abz"));
+    }
+
+    public function testDecryption5()
+    {
+        $expected = "abz";
+
+        $this->assertEquals($expected, $this->enc5->decrypt("fge"));
+    }
+
+    public function testEncryption3()
+    {
+        $expected = "dec";
 
         $this->assertEquals($expected, $this->enc->encrypt("abz"));
     }
 
-    public function testDecryption()
+    public function testDecryption3()
     {
         $expected = "abz";
 
-        $this->assertEquals($expected, $this->enc->decrypt("fge"));
+        $this->assertEquals($expected, $this->enc->decrypt("dec"));
     }
 }

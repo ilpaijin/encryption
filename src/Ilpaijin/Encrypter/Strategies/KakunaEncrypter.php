@@ -12,6 +12,24 @@ use Ilpaijin\Encrypter\Contracts\EncrypterInterface;
 class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
 {
     /**
+     * [$factor description]
+     * @var [type]
+     */
+    private $factor;
+
+    /**
+     * [__construct description]
+     * @param [type] $strategy [description]
+     * @param [type] $factor   [description]
+     */
+    public function __construct($factor)
+    {
+        $this->factor = is_null($factor) ? 3 : $factor;
+
+        parent::__construct();
+    }
+
+    /**
      * @link /src/Encrypter/EncrypterInterface.php
      * @see EncrypterInterface
      */
@@ -23,12 +41,12 @@ class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
         {
             $ordValue = ord($value);
 
-            if($ordValue >= ((97 + ($l = count($this->alpha))) - 5))
+            if($ordValue >= ((97 + ($l = count($this->alpha))) - $this->factor))
             {
                 $ordValue -= $l; 
             }
 
-            $ordValue += 5;
+            $ordValue += $this->factor;
 
             $result[$key] = chr($ordValue);
         }
@@ -48,12 +66,12 @@ class KakunaEncrypter extends AbstractEncrypter implements EncrypterInterface
         {
             $ordValue = ord($value);
 
-            if($ordValue <= ((122 - ($l = count($this->alpha))) + 5))
+            if($ordValue <= ((122 - ($l = count($this->alpha))) + $this->factor))
             {
                 $ordValue += $l; 
             }
 
-            $ordValue -= 5;
+            $ordValue -= $this->factor;
 
             $result[$key] = chr($ordValue);
         }

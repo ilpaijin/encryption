@@ -14,8 +14,10 @@ class EncrypterFactory
      * @param  [type] $strategyClass [description]
      * @return [type]                [description]
      */
-    public static function make($strategyClass)
+    public static function make($strategyParms)
     {
+        list($strategyClass, $option) = array_pad(explode(":", $strategyParms), 2, null);
+
         $nsClass = __NAMESPACE__ . "\\Strategies\\" . ucfirst($strategyClass) . "Encrypter";
 
         if(!class_exists($nsClass))
@@ -23,6 +25,6 @@ class EncrypterFactory
             throw new \InvalidArgumentException("Invalid Encrypter {$strategyClass}");
         }
 
-        return new $nsClass();
+        return new $nsClass($option);
     }
 }

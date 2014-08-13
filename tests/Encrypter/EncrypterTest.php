@@ -41,4 +41,14 @@ class EncrypterTest extends PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf("Ilpaijin\\Encrypter\\Contracts\\EncrypterInterface", $this->enc);
     }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testExceptionThrownOnInvalidStrategy()
+    {
+        $newEnc = EncrypterFactory::make('numc');
+
+        $this->assertInstanceOf("Ilpaijin\\Encrypter\\Contracts\\EncrypterInterface", $newEnc);
+    }
 }
